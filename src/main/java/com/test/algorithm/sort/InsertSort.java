@@ -22,7 +22,7 @@ public class InsertSort {
             data[i] = s;
         }
 
-        insertion_sort(data, 0);
+        insertion_sort(data);
 
         System.out.println(data);
     }
@@ -33,26 +33,16 @@ public class InsertSort {
     * 次循环从第二个数开始往前数，当发现某个数大于key后，将该数以及
     * 其后面的数都往后挪一位。将key放在某个数的位置。一直查看到最前面。
     * @ data, 要排序的数据
-    * @ type，排序类型，0升序，1降序
      */
-    public static void insertion_sort(int data[], int type) {
+    public static void insertion_sort(int data[]) {
         int len = data.length;
         for(int j=1; j<len; j++) {
             int i=j-1;
             int key = data[j];
-
-            if(type==0) {
-                // 升序
-                while (i >= 0 && data[i] > key) {
-                    data[i + 1] = data[i];
-                    i -= 1;
-                }
-            } else {
-                // 降序
-                while (i >= 0 && data[i] < key) {
-                    data[i + 1] = data[i];
-                    i -= 1;
-                }
+            // 升序,如果要降序，则使用data[i] < key
+            while (i >= 0 && data[i] > key) {
+                data[i + 1] = data[i];
+                i -= 1;
             }
             data[i+1] = key;
         }
