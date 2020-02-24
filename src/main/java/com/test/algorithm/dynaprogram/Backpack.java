@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class Backpack {
 
-    public static final int BACK_OBJECT= 3; // 商品数量
+    public static final int BACK_OBJECT= 4; // 商品数量
     public static final int BACK_WEIGHT = 4; // 背包容量
 
 
@@ -65,9 +65,7 @@ public class Backpack {
 
         if( curI >= 1 && curJ > (objWeight-1) ) {
             int tmp = res2 + grid[curI-1][curJ-objWeight];
-            //if( tmp <= BACK_MAX_WEIGHT ) {
-                res2 = tmp;
-            //}
+            res2 = tmp;
         }
 
         if(res2 > res1) {
@@ -82,11 +80,13 @@ public class Backpack {
         MObject guitar = new MObject("Guitar", 1, 1500);
         MObject speakers = new MObject("Speakers", 4, 3000);
         MObject nootbook = new MObject("Nootbook", 3, 2000);
+        MObject iphone = new MObject("Iphone", 1, 2000);
 
         List<MObject> objectList = new ArrayList<>();
         objectList.add(guitar);
         objectList.add(nootbook);
         objectList.add(speakers);
+        objectList.add(iphone);
 
         // 初始化网格
         int backGrid[][] = new int[BACK_OBJECT][BACK_WEIGHT];
